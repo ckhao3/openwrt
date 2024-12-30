@@ -187,6 +187,10 @@ jobs:
         touch release.txt
         [ ${UPLOAD_GOFILE} = true && ${{ steps.gofile.outputs.url }} ] && echo "🔗 [GoFile](${{ steps.gofile.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
+    - name: Check file sizes
+      run: |
+        echo "Checking file sizes"
+        ls -lh ${{ env.FIRMWARE }}
 
     - name: Upload firmware to release
       uses: softprops/action-gh-release@master
