@@ -164,7 +164,7 @@ jobs:
     #     path: openwrt/bin
     
     - name: Upload firmware to release
-      uses: softprops/action-gh-release@v1.0  # 使用稳定版本
+      uses: softprops/action-gh-release@master  # 使用稳定版本
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
